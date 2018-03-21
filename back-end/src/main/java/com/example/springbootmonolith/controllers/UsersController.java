@@ -21,29 +21,19 @@ public class UsersController {
 
     @GetMapping("/users/{userId}")
     public Optional<User> findUserById(@PathVariable Long userId) {
-        return userRepository.findById(userId);
+        return userRepository.findById( userId );
     }
 
     @DeleteMapping("/users/{userId}")
     public HttpStatus deleteUserById(@PathVariable Long userId) {
-        userRepository.deleteById(userId);
+        userRepository.deleteById( userId );
         return HttpStatus.OK;
     }
 
     @PostMapping("/users")
     public User createNewUser(@RequestBody User newUser) {
-        return userRepository.save(newUser);
-    }
-
-    @PatchMapping("/users/{userId}")
-    public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
-        User userFromDb = userRepository.findById(userId).get();
-
-        userFromDb.setUserName(userRequest.getUserName());
-        userFromDb.setFirstName(userRequest.getFirstName());
-        userFromDb.setLastName(userRequest.getLastName());
-
-        return userRepository.save(userFromDb);
+        return userRepository.save( newUser );
     }
 
 }
+

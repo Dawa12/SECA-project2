@@ -12,19 +12,27 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "USER_NAME")
-    private String userName;
-
     @Column(name = "FIRST_NAME")
     private String firstName;
 
     @Column(name = "LAST_NAME")
     private String lastName;
 
-    public User(String userName, String firstName, String lastName) {
-        this.userName = userName;
+    @Column(name = "GENDER")
+    private String gender;
+
+    @Column(name = "SHIRT_SIZE")
+    private String shirt_size;
+
+    @Column(name = "COLOR")
+    private String color;
+
+    public User(String firstName, String lastName, String gender, String shirt_size, String color) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
+        this.shirt_size = shirt_size;
+        this.color = color;
     }
 
 }
